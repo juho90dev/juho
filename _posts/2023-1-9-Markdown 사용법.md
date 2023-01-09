@@ -50,7 +50,7 @@ title: Markdown 사용법
 
 이것은 H1<br>
 ===
-This is an H2<br>
+이것은 H2<br>
 ---
 # 이것은 H1; 부(parts)에 사용<br>
 ## 이것은 H2; 장(chapters)에 사용<br>
