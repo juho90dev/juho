@@ -59,3 +59,24 @@ title: Markdown 사용법
 ##### 이것은 H5; 하위 섹션 아래의 하위 섹션에 사용<br>
 ###### 이것은 H6; 문단에 사용<br>
 
+## 2. Emphasis 강조
+* 기울여 쓰기(italic) : `*` 또는 `_`로 감싼 텍스트.
+* 두껍게 쓰기(bold) : `**` 또는 `__`로 감싼 텍스트.
+* 취소선 : `~~`로 감싼 텍스트.
+* 이탤릭체와 두껍게를 같이 사용할 수 있습니다.
+
+### Syntax 마크다운 사용법
+      *This text will be italic*
+      _This will also be italic_
+      **This text will be bold**
+      __This will also be bold__
+      ~~This is canceled~~
+      *You **can** combine them*
+      
+### Demonstration 실행결과
+*This text will be italic*<br>
+_This will also be italic_<br>
+**This text will be bold**<br>
+__This will also be bold__<br>
+~~This is canceled~~<br>
+*You **can** combine them*<br>
