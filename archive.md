@@ -1,11 +1,3 @@
-nes (31 sloc)  795 Bytes
-
----
-layout: page
-title: Archive
-permalink: /archive/
----
-
 {% if site.posts.size == 0 %}
   <h2>No post found</h2>
 {% endif %}
