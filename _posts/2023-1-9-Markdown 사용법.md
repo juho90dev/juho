@@ -23,3 +23,33 @@ title: Markdown 사용법
     1. 표준이 없다.
     2. 표준이 없기 때문에 도구에 따라서 변환방식이나 생성물이 다르다.
     3. 모든 HTML 마크업을 대신하지 못한다.
+
+
+## 1. Headers 헤더
+* `#`으로 시작하는 텍스트.
+* `#`은 하나부터 여섯개까지 가능.
+* `#`이 늘어날때마다 제목의 스케일 낮아집니다.
+* H1은 `===`로도 만들 수 있습니다.
+* H2는 `---`로도 만들 수 있습니다.
+### Syntax 마크다운 사용법
+    This is an H1
+    ===
+    This is an H2
+    ---
+    # This is an H1
+    ## This is an H2
+    ### This is an H3
+    #### This is an H4
+    ##### This is an H5
+    ###### This is an H6   
+### Demonstration 실행결과
+This is an H1<br>
+===
+This is an H2<br>
+---
+# This is an H1; 부(parts)에 사용<br>
+## This is an H2; 장(chapters)에 사용<br>
+### This is an H3; 페이지 섹션에 사용<br>
+#### This is an H4; 하위 섹션에 사용<br>
+##### This is an H5; 하위 섹션 아래의 하위 섹션에 사용<br>
+###### This is an H6; 문단에 사용<br>
