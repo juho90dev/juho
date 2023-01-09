@@ -46,6 +46,20 @@ title: Markdown 사용법
     ##### This is an H5
     ###### This is an H6   
 
+### Demonstration 실행결과
+
+이것은 H1<br>
+===
+This is an H2<br>
+---
+# 이것은 H1; 부(parts)에 사용<br>
+## 이것은 H2; 장(chapters)에 사용<br>
+### 이것은 H3; 페이지 섹션에 사용<br>
+#### 이것은 H4; 하위 섹션에 사용<br>
+##### 이것은 H5; 하위 섹션 아래의 하위 섹션에 사용<br>
+###### 이것은 H6; 문단에 사용<br>
+
+
 ``` java
 public class Array_lotto {
 	public static void main(String[] args) {
