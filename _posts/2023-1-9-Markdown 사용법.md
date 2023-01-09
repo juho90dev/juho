@@ -35,9 +35,9 @@ title: Markdown 사용법
 * H2는 `---`로도 만들 수 있습니다.
 
 ### Syntax 마크다운 사용법
-    This is an H1
+    이것은 H1
     ===
-    This is an H2
+    이것은 H2
     ---
     # This is an H1
     ## This is an H2
