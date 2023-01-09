@@ -33,6 +33,7 @@ title: Markdown 사용법
 * `#`이 늘어날때마다 제목의 스케일 낮아집니다.
 * H1은 `===`로도 만들 수 있습니다.
 * H2는 `---`로도 만들 수 있습니다.
+
 ### Syntax 마크다운 사용법
     This is an H1
     ===
@@ -44,14 +45,4 @@ title: Markdown 사용법
     #### This is an H4
     ##### This is an H5
     ###### This is an H6   
-### Demonstration 실행결과
-This is an H1<br>
-===
-This is an H2<br>
----
-# This is an H1; 부(parts)에 사용<br>
-## This is an H2; 장(chapters)에 사용<br>
-### This is an H3; 페이지 섹션에 사용<br>
-#### This is an H4; 하위 섹션에 사용<br>
-##### This is an H5; 하위 섹션 아래의 하위 섹션에 사용<br>
-###### This is an H6; 문단에 사용<br>
+
