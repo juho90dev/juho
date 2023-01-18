@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SpringBoot File 업로드하기 - [1]
+title: SpringBoot File Upload하기 - [1]
 ---
 
 
