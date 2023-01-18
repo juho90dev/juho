@@ -107,6 +107,46 @@ title: SpringBoot File Upload하기 - [2]
 #### 번외
 dao에서 jpa를 사용하지 않고 mybatis를 사용하였다.
 
-
+- service에서 구현한 로직
+	```java
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
+	
+	@Autowired
+	private SqlSessionTemplate session;
+	
+	@Override
+	public int updateMember(Member m) {
+		m.setPassword(passwordEncoder.encode(m.getPassword()));
+		// 회원가입 시 패스워드 암호화를 해주었기때문에 수정할때도 패스워드 암호화 설정을 해줘야 한다.
+		return mmdao.updateMember(session, m);
+	}
+	```
+	- Mybatis를 이용하여 DAO를 구현하려면 SqlSession 객체가 필요하다.
+	- SqlSessionTemplate은 SqlSession을 구현하고 코드에서 SqlSession를 대체하는 역할이다.
+- dao에서 구현한 로직
+	```java
+	public int updateMember(SqlSessionTemplate session, Member m) {
+		return session.update("member.updateMember", m);
+	}
+	```
+	- session객체의 메소드를 이용해서 쿼리문을 실행
+		- DML : insert(), update(), delete() 
+		- DQL : selectOne(), selectList()
+		- 각 메소드의 매개변수로 mapper와 살행할 sql구문을 지정 
+		- 문자열로 mapper의 namespace값.sql태그 아이디값
+		- sql문을 실행할때 대입해야할 값이 있는 경우
+		- sql처리 메소드의 두번째 매개변수에 값을 전달
+		- (mybatis는 따로 다뤄보도록 하자.)
+	- `session.update("member.updateMember", m)`을 실행
+		```java
+		<update id="updateMember" parameterType="Member">
+   		UPDATE MEMBER 
+		SET 
+		EMAIL=#{email}, PHONE=#{phone}, IMAGE=#{image}, CITY=#{city}, COUNTRY=#{country}, PASSWORD=#{password}, INTRODUCE=#{introduce} 
+   		WHERE USERID=#{userId}
+		</update>
+		```
+	- 이때 #{}를 사용하면 데이터를 문자열로 인식하고 자동으로 ""가 붙는다.
 
 
