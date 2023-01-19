@@ -155,7 +155,8 @@ dao에서 jpa를 사용하지 않고 mybatis를 사용하였다.
 	- 데이터를 전송받아서 처리하는 sql구문은 parameterType속성을 설정한다.
 
 - 실행을 한게 되면 오류가 난다.
-<image src="https://user-images.githubusercontent.com/107177133/213096517-0a853fc3-f38b-4547-9c3d-fff0c7ffa82c.png"/> <br>
+	<image src="https://user-images.githubusercontent.com/107177133/213096517-0a853fc3-f38b-4547-9c3d-fff0c7ffa82c.png"/> <br>
+	<br>
 	- 오류메세지를 보면 IllegalArgumentException 오류가 적혀있다.
 	- 이 오류는
 		- mapper XML파일에 작성한 id=''값과 DAO에 적은 id값이 다른 경우 
