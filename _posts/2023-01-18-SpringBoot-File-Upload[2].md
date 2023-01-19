@@ -159,7 +159,7 @@ dao에서 jpa를 사용하지 않고 mybatis를 사용하였다.
 	<br>
 	- 오류메세지를 보면 IllegalArgumentException 오류가 적혀있다.
 	- 이 오류는
-		- mapper XML파일에 작성한 id=''값과 DAO에 적은 id값이 다른 경우 
+		- mapper XML파일에 작성한 id=""값과 DAO에 적은 id값이 다른 경우 
 		- Parameter와 bean의 필드명이 틀린 경우
 		- mapper XML파일에 정의된 네임스페이스(namespace)와 mapper파일에 직접 접근하는 java파일(DAO나 service)에서 호출하는 네임스페이스(namespace)가 다를 경우
 		- MyBatis config파일에 mapper가 정의가 되어 있지 않거나 Spelling이 틀린 경우
