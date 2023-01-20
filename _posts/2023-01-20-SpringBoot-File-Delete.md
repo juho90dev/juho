@@ -46,7 +46,7 @@ title: SpringBoot File Delete
     ```java
     if(f.exists()) f.delete();
     ```
-    - 처음에 `service.selectNoticeInfo(id);`로 해당 글의 데이터를 가져온 이유는
+    - 처음에 `service.selectNoticeInfo(id);`로 해당 글의 데이터를 가져온 이유는 
     - n.getRenameFileName()의 데이터값을 가져오기 위함이었다.
     - 그 다음 exists()를 사용한다.
         - exists() : 파일 또는 폴더가 존재하는지 리턴하는 메서드
