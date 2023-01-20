@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SpringBoot-File-Delete
+title: SpringBoot File Delete
 ---
 
 ## 업로드된 파일 삭제
