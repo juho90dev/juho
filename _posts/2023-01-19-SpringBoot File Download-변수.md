@@ -117,6 +117,13 @@ title: SpringBoot File Download하기
 		```
 
 
+--------
 
+1. 파일 다운로드 <br>
+	<image src="https://user-images.githubusercontent.com/107177133/213630426-57505986-051b-4004-808e-4d1202cbb64e.png" style="width:400px; height:200px;"/> <br>
+	<br>
+2. 클릭<br>
+	<image src="https://user-images.githubusercontent.com/107177133/213630659-0d96324d-e16d-4412-949f-22202a8d79c7.png" style="width:400px; height:200px;"/> <br>
+																													
 
 
