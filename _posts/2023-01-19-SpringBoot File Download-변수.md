@@ -100,7 +100,7 @@ title: SpringBoot File Download하기
 		res.setHeader("Content-Disposition", "attachment;filename=\""+encodeFilename+"\"");
 		```
 		- Content-Disposition은 HTTP Response Body에 오는 컨텐츠의 기질/성향을 알려주는 속성이다.
-			- 이때 `"attachment;filename=\""`를 주게 되면 Body에 오는 값을 다운로드받으라는 뜻이 된다.
+			- 이때 ` "attachment;filename=\"" `를 주게 되면 Body에 오는 값을 다운로드받으라는 뜻이 된다.
 		- attachment : 로컬에 다운로드 & 저장 (대부분의 브라우저에서는 바로 다운로드가 되거나, “Save As” 다이얼로그가 표시됨)
 		- filename : 파일 이름을 지정할 수 있는데
 			- encodeFilename을 적어서 다운로드 받을때 인코딩한 데이터를 파일이름으로 한다는 뜻이다.
