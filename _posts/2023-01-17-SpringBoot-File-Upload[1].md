@@ -6,9 +6,9 @@ title: SpringBoot File Upload하기 - [1]
 
 SpringBoot로 파일 업로드
 
-### `SpringBoot` 2.7.7버전을 사용
-### maven project
-### test패키지를 만들어서 테스트 로직 구현
+- `SpringBoot` 2.7.7버전을 사용
+- `maven project`
+- test패키지를 만들어서 테스트 로직 구현
 
 
 1. 회원 프로필 사진을 바꾸기 위해 이미지파일을 form태그를 이용하여 전송한다.
