@@ -4,11 +4,11 @@ title: About
 permalink: /about/
 ---
 
-Web Developer
+## Web Developer
 
-### More Information
+### About Me
 
-A place to include any other types of information that you'd like to include about yourself.
+오늘도 기록하는 개발자.
 
 ### Contact Me
 
