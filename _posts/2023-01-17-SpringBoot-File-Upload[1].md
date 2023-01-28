@@ -21,8 +21,10 @@ SpringBoot로 파일 업로드
         1. application/x-www-form-urlencoded : 기본값으로, 모든 문자들은 서버로 보내기 전에 인코딩됨을 명시한다.
         2. multipart/form-data : 모든 문자를 인코딩하지 않음을 , 이 방식은 form 요소가 파일이나 이미지를 서버로 전송할 때 주로 사용한다.
         3. text/plain : 공백 문자(space)는 “+” 기호로 변환하지만, 나머지 문자는 모두 인코딩되지 않음을 명시한다.
-        
+  
+ 
 ---------
+
 2. controller  
     - controller에서 구현한 로직은 다음과 같다.
     
@@ -77,13 +79,19 @@ SpringBoot로 파일 업로드
 		return "mypage";
 	    }
         ```
+
+
 ---------
+
 3.  getFile()
 	```java
     MultipartFile mFile = mtRequest.getFile("image");
     getFile()을 이용해서 MultipartFile에 넘어온 이미지주소를 넣는다.
     ```    
+
+
 ---------
+
 4. 그리고 이미지 저장 경로를 설정
 	```java
     String path = mtRequest.getServletContext().getRealPath("/resources/upload/test/");
@@ -96,7 +104,10 @@ SpringBoot로 파일 업로드
 	- new File(String path)은 주어진 문자열 경로를 갖는 File 객체를 생성한다
     - 절대 경로 또는 현재 프로그램이 실행되는 위치를 기준으로 하는 상대경로로 지정 가능하다.<br>
     	내가 설정한 경로를 넣고 uploadPath로 설정    
+
+
 ---------
+
 5. 저장 경로명에 해당되는 디렉터리가 존재하지 않을 경우, 해당 디렉터리가 자동으로 생성되도록 설정
 	- `mkdirs()`를 사용.
 	```java
@@ -107,7 +118,9 @@ SpringBoot로 파일 업로드
         경로`.isFile()` : 경로가 file인지 확인한다. <br>
         경로`.isDirectory()` : 경로가 directory(folder)인지 확인한다. <br>
 		<br>	
----------	
+		
+---------
+
 6. 그리고 파일 이름과 확장자를 추출한다.
 	```java
 	String oriFileName = mFile.getOriginalFilename();
@@ -122,7 +135,9 @@ SpringBoot로 파일 업로드
 	<image src="https://user-images.githubusercontent.com/107177133/212882308-9a530a0b-f89d-468e-9d8f-04f25a8146bd.png"/>
 	<br>
 	- substring(oriFileName.lastIndexOf(".")) 부분에서 오류가 난다 -> 조건문을 사용해서 mFile이 null이 아닌 가정을 두고 try~catch문으로 작성한다.
+
 ---------
+
 7. 저장될 이름을 작성한 뒤 `transferTo()`로 복사한다.
 	```java
 	String rename = writer+ext;
@@ -132,13 +147,18 @@ SpringBoot로 파일 업로드
 			System.out.println("실패");
 		}
 	```
+
 ---------
+
 8. 그 뒤 Upfile클래스에 builder()를 사용하여 데이터를 넣어주고 DB에 넣는 메서드를 사용한다.
 	```java
 	Upfile f = Upfile.builder().writer(writer).content(content).originalFileName(oriFileName).renameFileName(rename).build();
 	
 	us.insertFile(f);
 	```
+	
+--------
+
 9. 구현화면
 	- 사진을 선택 후 업로드를 하면<br>
 		<image src="https://user-images.githubusercontent.com/107177133/213077036-7821df9e-0779-4e3b-a13d-a4e999782e77.png"/> <br>
