@@ -3,9 +3,12 @@ layout: post
 title: SpringBoot File Upload하기 - [2]
 ---
 
-내 프로젝트에 정리하여 업로드 완성시키기
 
-## 프로젝트에 먼저 구현한 파일업로드 로직을 정리해서 적용시키기
+## SpringBoot로 파일 업로드[2]
+
+### 내 프로젝트에 정리하여 업로드 완성시키기
+
+### 프로젝트에 먼저 구현한 파일업로드 로직을 정리해서 적용시키기
 - springboot 2.7.7 ver
 - maven project
 - JPA, myBatis 사용
