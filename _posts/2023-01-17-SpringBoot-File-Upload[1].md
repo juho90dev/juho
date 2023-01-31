@@ -4,7 +4,7 @@ title: SpringBoot File Upload하기 - [1]
 ---
 
 
-SpringBoot로 파일 업로드
+## SpringBoot로 파일 업로드[1]
 
 - `SpringBoot` 2.7.7버전을 사용
 - `maven project`
