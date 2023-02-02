@@ -25,4 +25,13 @@ title: SpringBoot-공공API-활용하기
     - EndPoint - 호출 url이다.
         - 이 두가지와 Api에서 정해놓은 파라미터들을 활용해 데이터를 가져올 수 있는 것이다.
 2. 그럼 불러올 경우에 어떻게 나오는지 확인해 보자.
-    - 
+    - 예시 url
+        - https://apis.data.go.kr/B551011/KorService/areaBasedList?serviceKey=[인증키]&pageNo=1&numOfRows=1&MobileApp=AppTest&MobileOS=ETC&arrange=A&areaCode=1
+        - `https://apis.data.go.kr/B551011/KorService` 여기까지 endpoint
+        - `areaBasedList` 는 해당 데이터에서 제공하는 서비스중 하나이며 지역기반서비스다.
+        - `areaCode=1` 지역코드가 1인 데이터로 설정
+    - XML 형식 <br>
+        <image src="https://user-images.githubusercontent.com/107177133/216222785-f1a1ddc0-5600-4c6a-a7b5-4398894acdc2.png" width=60%/>
+    - JSON 형식 <br>
+        <image src="https://user-images.githubusercontent.com/107177133/216222990-6863da6e-66b9-40ad-bfa5-36a9fccca2ba.png" width=60%/>
+    
