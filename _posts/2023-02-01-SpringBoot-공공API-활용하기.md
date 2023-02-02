@@ -33,5 +33,5 @@ title: SpringBoot-공공API-활용하기
     - XML 형식 <br>
         <image src="https://user-images.githubusercontent.com/107177133/216222785-f1a1ddc0-5600-4c6a-a7b5-4398894acdc2.png" width=60%/>
     - JSON 형식 <br>
-        <image src="https://user-images.githubusercontent.com/107177133/216222990-6863da6e-66b9-40ad-bfa5-36a9fccca2ba.png" width=60%/>
-    
+        <image src="https://user-images.githubusercontent.com/107177133/216223299-5c0b33d4-2bb6-47da-991e-e99cb138655f.png" width=60%/>
+    - 해당 url에 `&_type=json`을 작성하고 안하고의 차이다.
