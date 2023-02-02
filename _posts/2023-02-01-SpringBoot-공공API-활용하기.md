@@ -37,7 +37,7 @@ title: SpringBoot-공공API-활용하기
         <image src="https://user-images.githubusercontent.com/107177133/216224637-b76acb45-80f6-4cb6-83cb-7edba322587d.png" />
     - 해당 url에 `&_type=json`을 작성하면 JSON형식으로 응답이 오고 작성을 하지 않을 경우에는 XML형식으로 응답이 온다.
 
-3. 데이터를 사용하기 위해 controller를 생성한다.
+3. 데이터를 사용하기 위해 controller를 생성후 데이터를 불러와보자.
     - 일단 controller는 이렇게 작성을 했다.
     ```java
     @RestController
@@ -133,16 +133,59 @@ title: SpringBoot-공공API-활용하기
     ```java
     URL url = new URL(urlStr);
     ```
+    - url(urlString)으로 url을 생성
+    	- URLConnection 인스턴스는 URL 객체의 openConnection() 메소드 호출에 의하여 얻어진다.
+    	- 프로토콜이 Http:// 인 경우 반환된 객체를 HttpURLConnection객체로 캐스팅 할수 있다고 한다.
+    ```java
+    HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+    ```
+    - Http 메소드 중 하나인 URL요청에 대한 메소드를 설정, 기본값은 GET
+    ```java
+    urlConnection.setRequestMethod("GET");
+    ```
+    - 실제 내용을 읽기 위해 InputStream 인스턴스를 얻은 다음 read()를 이용하여 데이터를 읽어야한다.
+	나는 한줄씩 읽기위해 readLine을 사용
+	데이터를 result에 추가하고 읽을 데이터가 null이 된다면(없다면) 반복문을 해제하도록 while문 사용
+	그리고 연결해제
+    ```java
+    BufferedReader br;
+		br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
+		String returnLine;
+		
+		while((returnLine = br.readLine()) != null) {
+			result.append(returnLine +"\n\r");
+			
+		}
+		urlConnection.disconnect();
+	```
+	- close()를 사용해셔 연결을 종료한 경우 다시 연결할려면 openConnection() 을 다시 해줘야 하고, disconnect()는 connect() 메소드만 호출하면 바로 다시 복구 된다. 
+	- 여기까지가 아까 예시로 웹상에서 보았던 데이터를 볼 수가 있다.
+4. JSON Parsing
+	- JSON이란?
+		- JSON은 `J`ava`S`cript `O`bject `N`otation의 약자다.
+		- JSON은 "네트워크를 통해 데이터를 주고받는 데 자주 사용되는 경량의 데이터 형식"이다.  
+		- JSON은  name - value 형태의 쌍으로 이루어져있다.
+		- JSON은 독립적으로 다양한 언어에 사용
+		- JSON 오브젝트는 XML 데이타가 타입이 없는데 비해 타입을 가진다.
+			- XML 데이타는 모두 String이다.
+			- JSON types : string, number, array, boolean
+	- Parsing이란?
+		- 다른 형식으로 저장된 데이터를 원하는 형식의 데이터로 변환하는 것을 말한다.
+			-  XML, JSON : 데이터를 표현하는 문자열
+			-  JSON 파싱 : JSON 형식의 문자열을 객체로 변환하는 것
+	
+	- 그렇다면 이제 JSON-parsing을 해보자.
+	- 하지만 여기서 잠깐!!!
+	- JSON을 사용하기 위해 Json library가 필요하다.
+	- pom.xml에 가서 dependency를 추가하자.
+	```java
+	<!-- JSON-->
+	<dependency>
+	    <groupId>com.googlecode.json-simple</groupId>
+	    <artifactId>json-simple</artifactId>
+	    <version>1.1.1</version>
+	</dependency>
+	```
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-5. 
+  
