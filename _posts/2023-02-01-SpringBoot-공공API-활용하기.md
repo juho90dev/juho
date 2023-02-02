@@ -186,6 +186,53 @@ title: SpringBoot-공공API-활용하기
 	    <version>1.1.1</version>
 	</dependency>
 	```
-    
-    
-  
+	- result에 담겨진 데이터를 parsing하기 위해 새로운 객체에 담아준다.
+	```java
+	String jsonData = result.toString();
+    ```
+	- 잘몬된 Json데이터가 들어와서 에러발생이 되는 것을 방지하기 위해 try ~ catch문으로 시작을 하고.
+	- 먼저 JSON 객체를 생성하고 JSON 파싱 객체 생성한다.
+	```java
+	JSONObject jObj;
+	JSONParser jsonParser = new JSONParser();
+	```
+	- 파싱할 String Data(StringBuilder result)를 JSON객체로 parser를 통해 저장한다.
+	```java
+	JSONObject jsonObj=(JSONObject) jsonParser.parse(jsonData);
+	```
+	- 데이터를 이제 나눠보자.
+	- response, body, items, item를 받아온다.
+	- - parserResponse에는 response내부의 데이터가 담겨있다.
+	```java
+	JSONObject parseResponse = (JSONObject) jsonObj.get("response");
+	JSONObject parseBody = (JSONObject) parseResponse.get("body");
+	JSONObject parseItems = (JSONObject) parseBody.get("items");
+	```
+	- 이때 item 내부의 데이터는 [] 형태 -> 배열형태이니 Json배열로 받아온다.
+	```java
+	JSONArray array = (JSONArray) parseItems.get("item");
+    ```
+	- 이제 DB에 저장하는 로직이다.
+	- 데이터가 여러개이니(지역코드가 1인 서울의 관광데이터만해서 7천개가 넘는다....) 반복문을 사용해서 넣을 것이다.
+	```java
+	for(int i = 0; i<array.size(); i++) {
+				jObj=(JSONObject)array.get(i);
+				TestVo testvo = TestVo.builder().address(jObj.get("addr1").toString())
+						.areacode(Integer.parseInt(jObj.get("areacode").toString()))
+						.sigungucode(Integer.parseInt(jObj.get("sigungucode").toString()))
+						.cat1(jObj.get("cat1").toString())
+						.cat2(jObj.get("cat2").toString())
+						.contentId(jObj.get("contentid").toString())
+						.contentTypeId(jObj.get("contenttypeid").toString())
+						.firstImage(jObj.get("firstimage").toString())
+						.mapx(jObj.get("mapx").toString())
+						.mapy(jObj.get("mapy").toString())
+						.title(jObj.get("title").toString())
+						.build();
+						
+				as.insertData(testvo);
+				
+				//System.out.println(testvo);
+			}
+	```
+	dfdfd
