@@ -24,6 +24,7 @@ title: SpringBoot-공공API-활용하기
     - 일반 인증키 - api를 호출할 때 데이터가 파라미터로 들어가게 된다.
     - EndPoint - 호출 url이다.
         - 이 두가지와 Api에서 정해놓은 파라미터들을 활용해 데이터를 가져올 수 있는 것이다.
+        - 
 2. 그럼 불러올 경우에 어떻게 나오는지 확인해 보자.
     - 예시 url
         - https://apis.data.go.kr/B551011/KorService/areaBasedList?serviceKey=[인증키]&pageNo=1&numOfRows=1&MobileApp=AppTest&MobileOS=ETC&arrange=A&areaCode=1
@@ -33,5 +34,115 @@ title: SpringBoot-공공API-활용하기
     - XML 형식 <br>
         <image src="https://user-images.githubusercontent.com/107177133/216222785-f1a1ddc0-5600-4c6a-a7b5-4398894acdc2.png" width=60%/>
     - JSON 형식 <br>
-        <image src="https://user-images.githubusercontent.com/107177133/216223299-5c0b33d4-2bb6-47da-991e-e99cb138655f.png" width=60%/>
-    - 해당 url에 `&_type=json`을 작성하고 안하고의 차이다.
+        <image src="https://user-images.githubusercontent.com/107177133/216224637-b76acb45-80f6-4cb6-83cb-7edba322587d.png" />
+    - 해당 url에 `&_type=json`을 작성하면 JSON형식으로 응답이 오고 작성을 하지 않을 경우에는 XML형식으로 응답이 온다.
+
+3. 데이터를 사용하기 위해 controller를 생성한다.
+    - 일단 controller는 이렇게 작성을 했다.
+    ```java
+    @RestController
+    public class apiTestController {
+	
+	@Autowired
+	private ApiService as;
+	
+	@GetMapping("/test")
+	public String testBasic() throws IOException{
+		StringBuilder result = new StringBuilder();
+		String urlStr = "http://apis.data.go.kr/B551011/KorService/areaBasedList?"
+				+ "serviceKey=[서비스 인증키]"
+				+ "&pageNo=2"
+				+ "&numOfRows=100"
+				+ "&MobileApp=AppTest"
+				+ "&MobileOS=ETC"
+				+ "&_type=json"
+				+ "&areaCode=1";
+
+
+            URL url = new URL(urlStr);
+
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setRequestMethod("GET");
+            BufferedReader br;
+            br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
+            String returnLine;
+
+            while((returnLine = br.readLine()) != null) {
+                result.append(returnLine +"\n\r");
+
+            }
+
+            urlConnection.disconnect();
+            String jsonData = result.toString();
+
+            try {
+
+                JSONObject jObj;
+                JSONParser jsonParser = new JSONParser();
+                JSONObject jsonObj=(JSONObject) jsonParser.parse(jsonData);
+
+                JSONObject parseResponse = (JSONObject) jsonObj.get("response");
+
+                JSONObject parseBody = (JSONObject) parseResponse.get("body");
+
+                JSONObject parseItems = (JSONObject) parseBody.get("items");
+
+                JSONArray array = (JSONArray) parseItems.get("item");
+
+
+                for(int i = 0; i<array.size(); i++) {
+                    jObj=(JSONObject)array.get(i);
+                    TestVo testvo = TestVo.builder().address(jObj.get("addr1").toString())
+                            .areacode(Integer.parseInt(jObj.get("areacode").toString()))
+                            .sigungucode(Integer.parseInt(jObj.get("sigungucode").toString()))
+                            .cat1(jObj.get("cat1").toString())
+                            .cat2(jObj.get("cat2").toString())
+                            .contentId(jObj.get("contentid").toString())
+                            .contentTypeId(jObj.get("contenttypeid").toString())
+                            .firstImage(jObj.get("firstimage").toString())
+                            .mapx(jObj.get("mapx").toString())
+                            .mapy(jObj.get("mapy").toString())
+                            .title(jObj.get("title").toString())
+                            .build();
+
+                    as.insertData(testvo);
+               }
+            }catch(Exception e) {
+                e.printStackTrace();
+            }
+            return result.toString();
+        }
+    }
+
+    ```
+    
+    - url에 Open API의 EndPoint를 넣어주고 사용할 서비스명을 적어준다. 
+    - 그리고 끝부분에 `?`를 적는다.
+    - serviceKey=[] : 작성을 하지 않아 보이지는 않지만 이 부분에 마찬가지로 신청한 Api의 serviceKey를 적어준다.
+    - pageNo= 표시할 페이지번호
+    - numOfRows=표시할 데이터의 수
+    -` _type=json` : 응답 표준은 XML 이기에, JSON을 요청할경우 `&_type=json`을 작성을 해줘야 JSOM 방식으로 응답이 온다.
+    - `https://apis.data.go.kr/B551011/KorService/areaBasedList?` -> https://를 사용했더니 오류가 나기에 찾아보니 Java의 신뢰하는 인증서 목록(keystore)에 사용하고자 하는 인증기         관이 등록되어 있지 않아 접근이 차단되는 현상이라고 한다.
+    - 그 말은 즉, Https://를 호출하기 위해서는 Java에 인증서 목록에 해당 기관을 등록을 해줘야 한다는 것이데 등록이 되지않았다면 오류가 난다는 소리다.
+    -  인증서를 추가와 인증서 목록에 추가하여도 접근이 안되는 경우가 있는 경우는 https 대신 http로 작성하는 방법이다
+    
+    - URLConnection의 클래스는 일방적인 URL에 대한 API를 제공하고, 서브클래스 HttpURLConnection는 HTTP 고유의 기능에 대한 추가 지원을 제공한다.
+	다만 이 두 클래스는 모두 추상클래스이기에 새 인스턴스를 직접 만들수가 없다.
+	대신 URL객체에서 연결을 통해 URLConnection의 인스턴스를 얻는 방법이 있다.
+	먼저 URL객체를 생성한다.
+    ```java
+    URL url = new URL(urlStr);
+    ```
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+5. 
