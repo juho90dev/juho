@@ -216,23 +216,23 @@ title: SpringBoot-공공API-활용하기
 	- 데이터가 여러개이니(지역코드가 1인 서울의 관광데이터만해서 7천개가 넘는다....) 반복문을 사용해서 넣을 것이다.
 	```java
 	for(int i = 0; i<array.size(); i++) {
-				jObj=(JSONObject)array.get(i);
-				TestVo testvo = TestVo.builder().address(jObj.get("addr1").toString())
-						.areacode(Integer.parseInt(jObj.get("areacode").toString()))
-						.sigungucode(Integer.parseInt(jObj.get("sigungucode").toString()))
-						.cat1(jObj.get("cat1").toString())
-						.cat2(jObj.get("cat2").toString())
-						.contentId(jObj.get("contentid").toString())
-						.contentTypeId(jObj.get("contenttypeid").toString())
-						.firstImage(jObj.get("firstimage").toString())
-						.mapx(jObj.get("mapx").toString())
-						.mapy(jObj.get("mapy").toString())
-						.title(jObj.get("title").toString())
-						.build();
-						
-				as.insertData(testvo);
+		jObj=(JSONObject)array.get(i);
+		TestVo testvo = TestVo.builder().address(jObj.get("addr1").toString())
+			.areacode(Integer.parseInt(jObj.get("areacode").toString()))
+			.sigungucode(Integer.parseInt(jObj.get("sigungucode").toString()))
+			.cat1(jObj.get("cat1").toString())
+			.cat2(jObj.get("cat2").toString())
+			.contentId(jObj.get("contentid").toString())
+			.contentTypeId(jObj.get("contenttypeid").toString())
+			.firstImage(jObj.get("firstimage").toString())
+			.mapx(jObj.get("mapx").toString())
+			.mapy(jObj.get("mapy").toString())
+			.title(jObj.get("title").toString())
+			.build();
+		as.insertData(testvo);
 				
-				//System.out.println(testvo);
-			}
+				
+	}
 	```
-	dfdfd
+	- url작성에서부터 필요한 데이터만 선택 후 불러왔기때문에 해당 데이터에 맞는 객체를 담은 클래스를 작성했다.
+	- 이 작업에서는 테스트로 했기 때문에 TextVo로 VO클래스를 작성했다.
