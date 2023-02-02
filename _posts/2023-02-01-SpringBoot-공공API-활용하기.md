@@ -38,7 +38,8 @@ title: SpringBoot-공공API-활용하기
     - 해당 url에 `&_type=json`을 작성하면 JSON형식으로 응답이 오고 작성을 하지 않을 경우에는 XML형식으로 응답이 온다.
 
 3. 데이터를 사용하기 위해 controller를 생성후 데이터를 불러와보자.
-    - controller 작성.(service 및 repository는 일반 데이터 저장과 다를바가 없어 생략)
+    - controller 작성(service 및 repository는 일반 데이터 저장과 다를바가 없어 생략)
+    
     ```java
     @RestController
     public class apiTestController {
