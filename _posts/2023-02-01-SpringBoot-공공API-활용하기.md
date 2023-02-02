@@ -38,7 +38,7 @@ title: SpringBoot-공공API-활용하기
     - 해당 url에 `&_type=json`을 작성하면 JSON형식으로 응답이 오고 작성을 하지 않을 경우에는 XML형식으로 응답이 온다.
 
 3. 데이터를 사용하기 위해 controller를 생성후 데이터를 불러와보자.
-    - 일단 controller는 이렇게 작성을 했다.
+    - controller 작성.(service 및 repository는 일반 데이터 저장과 다를바가 없어 생략)
     ```java
     @RestController
     public class apiTestController {
@@ -93,17 +93,17 @@ title: SpringBoot-공공API-활용하기
                 for(int i = 0; i<array.size(); i++) {
                     jObj=(JSONObject)array.get(i);
                     TestVo testvo = TestVo.builder().address(jObj.get("addr1").toString())
-                            .areacode(Integer.parseInt(jObj.get("areacode").toString()))
-                            .sigungucode(Integer.parseInt(jObj.get("sigungucode").toString()))
-                            .cat1(jObj.get("cat1").toString())
-                            .cat2(jObj.get("cat2").toString())
-                            .contentId(jObj.get("contentid").toString())
-                            .contentTypeId(jObj.get("contenttypeid").toString())
-                            .firstImage(jObj.get("firstimage").toString())
-                            .mapx(jObj.get("mapx").toString())
-                            .mapy(jObj.get("mapy").toString())
-                            .title(jObj.get("title").toString())
-                            .build();
+  						.areacode(Integer.parseInt(jObj.get("areacode").toString()))
+						.sigungucode(Integer.parseInt(jObj.get("sigungucode").toString()))
+                        .cat1(jObj.get("cat1").toString())
+                        .cat2(jObj.get("cat2").toString())
+                        .contentId(jObj.get("contentid").toString())
+                        .contentTypeId(jObj.get("contenttypeid").toString())
+                        .firstImage(jObj.get("firstimage").toString())
+                        .mapx(jObj.get("mapx").toString())
+                        .mapy(jObj.get("mapy").toString())
+                        .title(jObj.get("title").toString())
+                        .build();
 
                     as.insertData(testvo);
                }
