@@ -203,18 +203,22 @@ title: SpringBoot-공공API-활용하기
 	```
 	- 데이터를 이제 나눠보자.
 	- response, body, items, item를 받아온다.
-	- - parserResponse에는 response내부의 데이터가 담겨있다.
+	- parserResponse에는 response내부의 데이터가 담겨있다.
 	```java
 	JSONObject parseResponse = (JSONObject) jsonObj.get("response");
 	JSONObject parseBody = (JSONObject) parseResponse.get("body");
 	JSONObject parseItems = (JSONObject) parseBody.get("items");
 	```
+	
 	- 이때 item 내부의 데이터는 [] 형태 -> 배열형태이니 Json배열로 받아온다.
+	
 	```java
 	JSONArray array = (JSONArray) parseItems.get("item");
-    ```
+   	 ```
+	 
 	- 이제 DB에 저장하는 로직이다.
 	- 데이터가 여러개이니(지역코드가 1인 서울의 관광데이터만해서 7천개가 넘는다....) 반복문을 사용해서 넣을 것이다.
+	
 	```java
 	for(int i = 0; i<array.size(); i++) {
 		jObj=(JSONObject)array.get(i);
