@@ -13,13 +13,13 @@ title: SpringBoot-공공API-활용하기
 
 1. 프로젝트를 진행하면서 필요한 공공API(OPEN API)를 활용하기.
     - https://www.data.go.kr/에서 필요한 공공데이터를 검색<br>
-        <image src="https://user-images.githubusercontent.com/107177133/216039645-a614b261-640c-4054-923b-f4ea33ed4a37.png" width=60%/>
+        <image src="https://user-images.githubusercontent.com/107177133/216039645-a614b261-640c-4054-923b-f4ea33ed4a37.png" width=600 height=200/>
     - 사용할 API를 선택 <br>
-        <image src="https://user-images.githubusercontent.com/107177133/216042534-9f8b39f9-9198-496e-a655-48bb8dd3e672.png" width=60%/>
+        <image src="https://user-images.githubusercontent.com/107177133/216042534-9f8b39f9-9198-496e-a655-48bb8dd3e672.png" width=600 height=200/>
     - 활용신청 버튼을 클릭 <br>
     - 클릭 후 활용목적과 저작권표시를 동의 한 후 활용 신청을 한다.
     - 승인이 되고 해당 데이터를 상세보기를 하면 <br>
-        <image src="https://user-images.githubusercontent.com/107177133/216220605-55d2b782-9342-4299-9610-c9da046a9d3f.png" width=60%/>
+        <image src="https://user-images.githubusercontent.com/107177133/216220605-55d2b782-9342-4299-9610-c9da046a9d3f.png" width=600 height=200/>
     - 위와 같이 인증키를 발급받은 것을 볼 수가 있다. 위 사진의 인증키는 보안의 이유로 지운 상태이다.
     - 일반 인증키 - api를 호출할 때 데이터가 파라미터로 들어가게 된다.
     - EndPoint - 호출 url이다.
@@ -32,7 +32,7 @@ title: SpringBoot-공공API-활용하기
         - `areaBasedList` 는 해당 데이터에서 제공하는 서비스중 하나이며 지역기반서비스다.
         - `areaCode=1` 지역코드가 1인 데이터로 설정
     - XML 형식 <br>
-        <image src="https://user-images.githubusercontent.com/107177133/216222785-f1a1ddc0-5600-4c6a-a7b5-4398894acdc2.png" width=60%/>
+        <image src="https://user-images.githubusercontent.com/107177133/216222785-f1a1ddc0-5600-4c6a-a7b5-4398894acdc2.png" width=600 height=200/>
     - JSON 형식 <br>
         <image src="https://user-images.githubusercontent.com/107177133/216224637-b76acb45-80f6-4cb6-83cb-7edba322587d.png" />
     - 해당 url에 `&_type=json`을 작성하면 JSON형식으로 응답이 오고 작성을 하지 않을 경우에는 XML형식으로 응답이 온다.
