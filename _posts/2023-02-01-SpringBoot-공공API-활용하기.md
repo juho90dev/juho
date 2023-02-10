@@ -192,8 +192,8 @@ title: SpringBoot-공공API-활용하기
 	- result에 담겨진 데이터를 parsing하기 위해 새로운 객체에 담아준다.
 	```java
 	String jsonData = result.toString();
-    ```
-	- 잘된 Json데이터가 들어와서 에러발생이 되는 것을 방지하기 위해 try ~ catch문으로 시작을 하고.
+    	```
+	- 잘못된 Json데이터가 들어와서 에러발생이 되는 것을 방지하기 위해 try ~ catch문으로 시작을 하고.
 	- 먼저 JSON 객체를 생성하고 JSON 파싱 객체 생성한다.
 	```java
 	JSONObject jObj;
