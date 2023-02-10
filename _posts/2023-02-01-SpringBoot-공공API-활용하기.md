@@ -163,7 +163,7 @@ title: SpringBoot-공공API-활용하기
 	- 여기까지가 아까 예시로 웹상에서 보았던 데이터를 볼 수가 있다.
 4. JSON Parsing
 	- JSON이란?
-		- JSON은 `J`ava`S`cript `O`bject `N`otation의 약자다.
+		- JSON은 'J'ava'S'cript 'O'bject 'N'otation의 약자다.
 		- JSON은 "네트워크를 통해 데이터를 주고받는 데 자주 사용되는 경량의 데이터 형식"이다.  
 		- JSON은  name - value 형태의 쌍으로 이루어져있다.
 		- JSON은 독립적으로 다양한 언어에 사용
