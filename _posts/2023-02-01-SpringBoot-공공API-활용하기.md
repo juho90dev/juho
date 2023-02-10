@@ -179,6 +179,7 @@ title: SpringBoot-공공API-활용하기
 	- 하지만 여기서 잠깐!!!
 	- JSON을 사용하기 위해 Json library가 필요하다.
 	- pom.xml에 가서 dependency를 추가하자.
+	
 	```java
 	<!-- JSON-->
 	<dependency>
@@ -187,6 +188,7 @@ title: SpringBoot-공공API-활용하기
 	    <version>1.1.1</version>
 	</dependency>
 	```
+	
 	- result에 담겨진 데이터를 parsing하기 위해 새로운 객체에 담아준다.
 	```java
 	String jsonData = result.toString();
