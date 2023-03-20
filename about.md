@@ -10,6 +10,3 @@ permalink: /about/
 
 오늘도 기록하는 개발자.
 
-### Contact Me
-
-[email@domain.com](mailto:email@domain.com)
