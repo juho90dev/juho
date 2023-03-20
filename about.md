@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-## Web Developer
+## Developer
 
 ### About Me
 
