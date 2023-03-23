@@ -28,6 +28,7 @@ title: Oracle Database[1]
     - DATE : 날짜
     - LOB
         - CLOB : 가변길이 문자(최대 4기가 바이트)
+        - BLOB : Binary Data
 --------
 - 오라클 계정 생성 : 관리자 권한이 있는 `system`계정으로 `ID`와 `password`를 부여해서 계정을 생성해줘야함
 
