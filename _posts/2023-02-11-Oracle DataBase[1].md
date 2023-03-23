@@ -111,6 +111,7 @@ DESC EMPLOYEE; -- Employees 테이블 속성 정보를 보여줌(description)
 - 중복값을 제거하는 명령어 : DISTINCT
     - DISTINCT는 SELECT문의 맨 앞에 나와야 한다.
     - DISTINCT 뒤에 여러컬럼을 사용하면 여러컬럼이 모두 동일한 값을 중복으로 본다.
+    
     ```sql
     SELECT DISTINCT DEPT_CODE FROM EMPLOYEE;
     
@@ -118,11 +119,9 @@ DESC EMPLOYEE; -- Employees 테이블 속성 정보를 보여줌(description)
     ```
 
 
-
-
 - 비교 연산자
     - Between And
-        - 비교하려는 값이 지정한 범위에 포함되면 TRUE를 리턴하는 연산자, 상한 값과 하한 값의 경계도 포함됨
+        - 비교하려는 값이 지정한 범위에 포함되면 TRUE를 리턴하는 연산자, 상한 값과 하한 값의 경계도 포함된다.
         ```sql
         -- 급여를 3500000보다 많이 받고 6000000보다 적게 받는 직원이름과 급여 조회
         
@@ -131,7 +130,13 @@ DESC EMPLOYEE; -- Employees 테이블 속성 정보를 보여줌(description)
         WHERE SALARY BETWEEN 3500000 AND 6000000;
         ```
     - LIKE
-        - 비교하려는 값이 지정한 특정 패턴을 만족하면 TRUE를 리턴하는 연산자로 ‘%’와 ‘_’를 와일드카드로 사용
+        - 문자열 패턴을 비교하는 연산자
+        - 비교하려는 값이 지정한 특정 패턴을 만족하면 TRUE를 리턴하는 연산자로 ‘%’와 ‘_’를 와일드카드로 사용한다.
+        - % : 글자가 0개 이상 아무문자나 다 허용 예) '%강' -> 글자수에 상관없이 강으로 끝나느 문자열 true;
+        - _ : 글자가 1개 아무 문자나 다 허용 예) '_강' -> 두글자이면서 강으로 끝나느 문자열 true;
+        - '%주%' -> 문자열에 주이 포함되어있으면 됨, 주로 시작, 주로 끝나도 되고 중간에 주가 있어도 된다.
+        - '_주_' -> 무조건 세글자이면서 가운데 주가 들어가야 한다.
+        - '__주%' => 세글자 이상이면서 앞에 두글자 이후에 주가 나오는 문자열 
         ```sql
         -- ‘전’씨 성을 가진 직원 이름과 급여 조회
         SELECT EMP_NAME, SALARY
@@ -145,15 +150,33 @@ DESC EMPLOYEE; -- Employees 테이블 속성 정보를 보여줌(description)
         ```
     - NOT LIKE
         ```sql
-        ‘이’씨 성이 아닌 직원 사번, 이름, 이메일 조회
+        -- ‘이’씨 성이 아닌 직원 사번, 이름, 이메일 조회
         SELECT EMP_ID, EMP_NAME, EMAIL
         FROM EMPLOYEE
         WHERE EMP_NAME NOT LIKE ‘이%’;
         -- WHERE NOT EMP_NAME LIKE ‘이%’;
         ```
-
-
-
+    - IS NULL / IS NOT NULL
+        ```sql
+        -- 관리자도 없고 부서 배치도 받지 않은 직원 조회
+        SELECT EMP_NAME, MANAGER_ID, DEPT_CODE
+        FROM EMPLOYEE
+        WHERE MANAGER_ID IS NULL AND DEPT_CODE IS NULL;
+        -- WHERE DEPT_CODE IS NULL AND BONUS IS NOT NULL
+        ```
+    - NULL값 조회하기
+        - NULL은 연산이 불가능하다.
+        - NULL값에 대한 비교연산은 따로 제공을 하기 때문에 NULL값을 비교할때는 제공하는 비교연산을 이용하면 된다.
+        - IS NULL -> NULL인 값을 찾을때
+        - IS NOT NULL -> NULL이 아닌 값을 찾을때
+        
+        ```sql
+        -- 사원중 DEPT_CODE가 NULL인 사원을 조회해보자.
+        
+        SELECT *
+        FROM EMPLOYEE
+        WHERE DEPT_CODE IS NULL;
+        ```
 
 
 
