@@ -67,20 +67,18 @@ DESC EMPLOYEE; -- Employees 테이블 속성 정보를 보여줌(description)
     - 카디널리티(컬럼 수)와 차수()가 모두 1인 dummy 테이블
 
 - SELECT문을 이용해서 산술연산 처리하기
-
     1. 리터럴값을 이용해서 산술연산 처리하기 
         ```sql
         SELECT 10+20 FROM DUAL;
         SELECT 10+20,30*40,4/5 FROM DUAL;
         ```
     2. 리터럴값과 컬럼을 산술연산하기
--- 산술연산을 하려면 기본적으로 연산하는 컬럼의 자료가 숫자형, 날짜형이어야함.
-
-
--- 3. 컬럼과 컴럼을 산술연산처리하기 
-SELECT SALARY, SALARY*BONUS FROM EMPLOYEE;
--- 컬럼값이 Null인것과 연산을 하면 연산이 불가능하여 결과는 NULL을 출력한다.
-```
+        - 산술연산을 하려면 기본적으로 연산하는 컬럼의 자료가 숫자형, 날짜형이어야함.
+    3. 컬럼과 컴럼을 산술연산처리하기 
+    ```sql
+    SELECT SALARY, SALARY*BONUS FROM EMPLOYEE;
+    -- 컬럼값이 Null인것과 연산을 하면 연산이 불가능하여 결과는 NULL을 출력한다.
+    ```
 
 
 
