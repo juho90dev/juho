@@ -26,6 +26,7 @@ title: Oracle Database[1]
         - BLOB : Binary Data
 --------
 - 오라클 계정 생성 : 관리자 권한이 있는 `system`계정으로 `ID`와 `password`를 부여해서 계정을 생성해줘야함
+
 ```sql
 create user 유저명 identified by 비밀번호 : 기본생성 명령
     
@@ -33,9 +34,11 @@ GRANT 부여할 권한들 [, 권한,권한2] to 사용자계정명;
 GRANT CONNECT, RESOURCE to 유저명;
 ```
 
+
 - 관리자계정 (system)은 DBMS를 전반적으로 관리하는 계정.
     - 사용자조회, 모든 테이블 조회하거나, 각 계정의 테이블도 조회가능
     - 관리자계정에는 DBMS에 대한 정보를 제공하는 테이블(data 저장소) -> dictionary
+
 ```sql
 SELECT * FROM DICT;
 -- 사용자 계정 조회
@@ -44,9 +47,11 @@ SELECT * FROM DBA_USERS;
 -- 설치된 테이블 확인하기 
 SELECT * FROM TAB; -- 계정이 가지고있는 전체 테이블을 조회하는 명령어
 ```
+
 - SELECT문 이용하기
     - SELECT문은 지정한 테이블에 있는 데이터(ROW) 조회해서 출려해주는 명령어이다.
    - 사용하는 방법
+
 ```sql
 SELECT 출력을 원하는 컬럼이 있으면 컬럼명을 작성[,컬럼명, 컬럼명] || 전체 컬럼을 조회하려면 * 작성
 FROM 테이블명
@@ -75,10 +80,10 @@ DESC EMPLOYEE; -- Employees 테이블 속성 정보를 보여줌(description)
     2. 리터럴값과 컬럼을 산술연산하기
         - 산술연산을 하려면 기본적으로 연산하는 컬럼의 자료가 숫자형, 날짜형이어야함.
     3. 컬럼과 컴럼을 산술연산처리하기 
-    ```sql
-    SELECT SALARY, SALARY*BONUS FROM EMPLOYEE;
-    -- 컬럼값이 Null인것과 연산을 하면 연산이 불가능하여 결과는 NULL을 출력한다.
-    ```
+        ```sql
+        SELECT SALARY, SALARY*BONUS FROM EMPLOYEE;
+        -- 컬럼값이 Null인것과 연산을 하면 연산이 불가능하여 결과는 NULL을 출력한다.
+        ```
 
 
 
