@@ -93,23 +93,64 @@ DESC EMPLOYEE; -- Employees 테이블 속성 정보를 보여줌(description)
 
 - SELECT에서 별칭 부여하기
     - AS예약어를 이용해서 사용이 가능하다.
-    ```sql
-    SELECT 컬럼명 AS 별칭, 컬럼명 AS별칭 FROM 테이블명
-    
-    ex)
-    SELECT EMP_NAME AS 사원명, EMP_NO AS 주민번호 FROM EMPLOYEE;
-    ```
+        ```sql
+        SELECT 컬럼명 AS 별칭, 컬럼명 AS별칭 FROM 테이블명
+
+        ex)
+        SELECT EMP_NAME AS 사원명, EMP_NO AS 주민번호 FROM EMPLOYEE;
+        ```
     - 별칭을 부여할 때 AS는 생략 가능하다.
-    ```sql
-   SELECT EMP_NAME 사원명 , EMP_NO 주민번호, SALARY 월급 FROM EMPLOYEE;
-    ```
+        ```sql
+        SELECT EMP_NAME 사원명 , EMP_NO 주민번호, SALARY 월급 FROM EMPLOYEE;
+        ```
     - 별칭을 부여할때 특수기호 사용이 가능하다 ->  " "로 감싸주면 된다.
+        ```sql
+        SELECT EMP_NAME "사 원 명", EMP_NO "주 민 번 호" FROM EMPLOYEE;
+        ```
+
+- 중복값을 제거하는 명령어 : DISTINCT
+    - DISTINCT는 SELECT문의 맨 앞에 나와야 한다.
+    - DISTINCT 뒤에 여러컬럼을 사용하면 여러컬럼이 모두 동일한 값을 중복으로 본다.
     ```sql
-    SELECT EMP_NAME "사 원 명", EMP_NO "주 민 번 호" FROM EMPLOYEE;
+    SELECT DISTINCT DEPT_CODE FROM EMPLOYEE;
+    
+    SELECT DISTINCT DEPT_CODE, EMP_NAME FROM EMPLOYEE;
     ```
 
 
 
+
+- 비교 연산자
+    - Between And
+        - 비교하려는 값이 지정한 범위에 포함되면 TRUE를 리턴하는 연산자, 상한 값과 하한 값의 경계도 포함됨
+        ```sql
+        -- 급여를 3500000보다 많이 받고 6000000보다 적게 받는 직원이름과 급여 조회
+        
+        SELECT EMP_NAME, SALARY
+        FROM EMPLOYEE
+        WHERE SALARY BETWEEN 3500000 AND 6000000;
+        ```
+    - LIKE
+        - 비교하려는 값이 지정한 특정 패턴을 만족하면 TRUE를 리턴하는 연산자로 ‘%’와 ‘_’를 와일드카드로 사용
+        ```sql
+        -- ‘전’씨 성을 가진 직원 이름과 급여 조회
+        SELECT EMP_NAME, SALARY
+        FROM EMPLOYEE
+        WHERE EMP_NAME LIKE ‘전%’;
+        
+        -- 핸드폰의 앞 네 자리 중 첫 번호가 7인 직원 이름과 전화번호 조회
+        SELECT EMP_NAME, PHONE
+        FROM EMPLOYEE
+        WHERE PHONE LIKE ‘_ _ _7%’;
+        ```
+    - NOT LIKE
+        ```sql
+        ‘이’씨 성이 아닌 직원 사번, 이름, 이메일 조회
+        SELECT EMP_ID, EMP_NAME, EMAIL
+        FROM EMPLOYEE
+        WHERE EMP_NAME NOT LIKE ‘이%’;
+        -- WHERE NOT EMP_NAME LIKE ‘이%’;
+        ```
 
 
 
