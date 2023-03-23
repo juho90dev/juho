@@ -29,6 +29,7 @@ title: Oracle Database[1]
     - LOB
         - CLOB : 가변길이 문자(최대 4기가 바이트)
         - BLOB : Binary Data
+        
 --------
 - 오라클 계정 생성 : 관리자 권한이 있는 `system`계정으로 `ID`와 `password`를 부여해서 계정을 생성해줘야함
 
@@ -91,15 +92,21 @@ DESC EMPLOYEE; -- Employees 테이블 속성 정보를 보여줌(description)
         ```
 
 - SELECT에서 별칭 부여하기
-    - AS예약어를 이용해서 사용이 가능함.
-    
+    - AS예약어를 이용해서 사용이 가능하다.
     ```sql
-     SELECT 컬럼명 AS 별칭, 컬럼명 AS별칭 FROM 테이블명
-     
-     ex)
-     SELECT EMP_NAME AS 사원명, EMP_NO AS 주민번호 FROM EMPLOYEE;
+    SELECT 컬럼명 AS 별칭, 컬럼명 AS별칭 FROM 테이블명
+    
+    ex)
+    SELECT EMP_NAME AS 사원명, EMP_NO AS 주민번호 FROM EMPLOYEE;
     ```
-
+    - 별칭을 부여할 때 AS는 생략 가능하다.
+    ```sql
+   SELECT EMP_NAME 사원명 , EMP_NO 주민번호, SALARY 월급 FROM EMPLOYEE;
+    ```
+    - 별칭을 부여할때 특수기호 사용이 가능하다 ->  " "로 감싸주면 된다.
+    ```sql
+    SELECT EMP_NAME "사 원 명", EMP_NO "주 민 번 호" FROM EMPLOYEE;
+    ```
 
 
 
