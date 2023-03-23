@@ -5,14 +5,19 @@ title: Oracle Database[1]
 
 ### SQL
 
-- SQL(Structured Query Language)<br>
-관계형 데이터베이스에서 데이터를 조회하거나 조작하기 위해 사용하는 표준 검색 언어로 원하는 데이터를 찾는 방법이나 절차를 기술하는 게 아닌 조건을 기술하하여 작성
-    - DML(Data Manipulation Language) : 조작어(데이터 조회 및 변형을 위한 명령어) : SELECT, INSERT, UPDATE, DELETe
-    - DDL(Data Definition Language) : 정의어(데이터의 구조를 정의 하기 위한 테이블 생성,삭제 같은 명령어) : CREATE, DROP, ALTER
-    - DCL(Data Control Language) : 제어어(사용자에게 권한 생성 혹은 권한 삭제 같은 명령어) : COMMIT, ROLLBACK, GRANTE, REVOKE
+- SQL(Structured Query Language)
+    - 관계형 데이터베이스에서 데이터를 조회하거나 조작하기 위해 사용하는 표준 검색 언어로 원하는 데이터를 찾는 방법이나 절차를 기술하는 게 아닌 조건을 기술하하여 작성
+    - DML(Data Manipulation Language)
+        - 조작어(데이터 조회 및 변형을 위한 명령어) : SELECT, INSERT, UPDATE, DELETe
+    - DDL(Data Definition Language)
+        - 정의어(데이터의 구조를 정의 하기 위한 테이블 생성,삭제 같은 명령어) : CREATE, DROP, ALTER
+    - DCL(Data Control Language)
+        - 제어어(사용자에게 권한 생성 혹은 권한 삭제 같은 명령어) : COMMIT, ROLLBACK, GRANTE, REVOKE
     -------------
-    - DQL(Data Query Language) : 데이터 검색 : SELECT -> 일부에서는 DML에서 SELECT 만을 따로 분리해서 DQL (Data Query Language) 라고 표현
-    - TCL(Transaction Control Language) : 트랜잭션 제어 : COMMIT, ROLLBAC -> 일부에서는 DCL 에서 트랜잭션을 제어하는 명령인 COMMIT 과 ROLLBACK 만을 따로 분리해서 TCL (Transaction Control Language) 라고 표현
+    - DQL(Data Query Language) 
+        - 데이터 검색 : SELECT -> 일부에서는 DML에서 SELECT 만을 따로 분리해서 DQL (Data Query Language) 라고 표현
+    - TCL(Transaction Control Language)
+        - 트랜잭션 제어 : COMMIT, ROLLBAC -> 일부에서는 DCL 에서 COMMIT 과 ROLLBACK 만을 따로 분리해서 TCL (Transaction Control Language) 라고 표현
 
 - 주요 데이터 타입
     - NUMBER : 숫자
