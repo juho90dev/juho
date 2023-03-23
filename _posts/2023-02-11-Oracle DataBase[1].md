@@ -21,7 +21,7 @@ title: Oracle Database[1]
         - VARCHAR2 : 가변길이 문자(최대 4000바이트)
         - LONG : 가변길이 문자(최대 2기가 바이트)
     - DATE : 날짜
-    - LOB 
+    - LOB
         - CLOB : 가변길이 문자(최대 4기가 바이트)
         - BLOB : Binary Data
 --------
@@ -85,6 +85,15 @@ DESC EMPLOYEE; -- Employees 테이블 속성 정보를 보여줌(description)
         -- 컬럼값이 Null인것과 연산을 하면 연산이 불가능하여 결과는 NULL을 출력한다.
         ```
 
+- SELECT에서 별칭 부여하기
+    - AS예약어를 이용해서 사용이 가능함.
+    
+    ```sql
+     SELECT 컬럼명 AS 별칭, 컬럼명 AS별칭 FROM 테이블명
+     
+     ex)
+     SELECT EMP_NAME AS 사원명, EMP_NO AS 주민번호 FROM EMPLOYEE;
+    ```
 
 
 
