@@ -192,6 +192,13 @@ title: Oracle Database[2]-함수
         
         -> 23/02/13, 23/02/13 12:54:13.191000000 +09
         ```
+    - NEXT_DAY
+        - 매개변수로 받은 요일중 가장 가까운 다음 일자를 표시
+        
+        ```sql
+        SELECT NEXT_DAY(SYSDATE, '화요일'), NEXT_DAY(SYSDATE, '금')
+        FROM DUAL;
+        ```
     - LAST_DAY
         - 현재 달의 마지막 날 출력
         
@@ -234,6 +241,36 @@ title: Oracle Database[2]-함수
             EXTRACT(DAY FROM SYSDATE) -- 해당 날짜에서 일만 출력
         FROM DUAL;
         ```
+4. 형변환 함수
+    - TO_CHAR : 입력값 타입 = DATE, NUMBER -> 리턴값 타입 =CHARACTER
+        - 날짜형 혹은 숫자형을 문자형으로 변환
+    - TO_DATE : 입력값 타입 = CHARACTER, NUMBER -> 리턴값 타입 = DATE
+        - 문자형 혹은 숫자형을 날짜형으로 변환
+    - TO_NUMBER : 입력값 타입 = CHARACTER -> 리턴값 타입 = NUMBER
+        - 문자형을 숫자형으로 변환
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
