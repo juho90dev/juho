@@ -249,17 +249,89 @@ title: Oracle Database[2]-함수
     - TO_NUMBER : 입력값 타입 = CHARACTER -> 리턴값 타입 = NUMBER
         - 문자형을 숫자형으로 변환
     
+5. NULL 처리 함수
+    - NVL
+        - NULL로 되어있는 컬럼의 값을 인자로 지정한 숫자 혹은 문자로 변경하여 반환
+        - NVL(컬럼, 대체 값)
+        
+        ```sql
+        SELECT EMP_NAME,NVL(DEPT_CODE,'인턴')
+        FROM EMPLOYEE;
+        
+        -> DEPT_CODE가 NULL이면 인턴으로 변경되어 출력
+        ```
 
+    - NVL2
+        - NULL일때, NULL이 아닐때 두가지 모두 설정
+        - NVL2( 대상, null 아닌 경우 대체 값, null인 경우 대체 값 ) 
 
+6. 선택 함수
+    - DECODE()
+        - DECODE(대상이 되는 값(문자||컬럼), 조건1, 결과1, 조건2, 결과2.....DEFAULT);
+        - 첫번째 값으로 들어오는 컬럼을 기준으로 검사하고, 이 값이 비교값이 조건1일때 결과1 반환, 조건2일때 결과2 반환
+        - 어느 조건에도 해당되지 않으면 DEFAULT를 반환하며, 생략할 경우 NULL을 반환한다.
+        
+        ```sql
+        SELECT JOB_CODE, DECODE(JOB_CODE,'J1','대표','J2','부사장','J3','부장','J4','과장','미정')
+        FROM EMPLOYEE;
+        
+        -> J1이면 대표, J2면 부사장.....JOB_CODE가 없으면 미정으로 반환
+        ```
+    - CASE() WHEN THEN 
+        - 특정 조건에 따라 값을 변경할 수 있다.
+        - 주로 SELECT절에서 사용
+        
+        ```sql
+        CASE WHEN 조건1 THEN 값1
+            WHEN 조건1 THEN 값1
+            ....
+            ELSE 값n
+        END
+        
+        ex)
+        SELECT EMP_NAME
+            CAWSE WHEN SUBSTR(EMP_NO,8,1)= 1 THEN '남'
+            ELSE '여'
+            END AS 성별
+        FROM EMPLOYEE;
+        ```
+7. 그룹함수
+    - 테이블의 데이터를 종합해서 하나의 ROW로 결과를 출력하는 함수
+    - 통계를 내거나, 분석할때 많이 사용한다. 
+    - 그룹함수는 집계하는 컬럼으로 제외한 다른 컬럼을 SELECT문에서 선택할 수 없다.
 
-
-
-
-
-
-
-
-
+    - SUM
+        - 데이터의 총 합계
+        
+        ```sql
+        SELECT SUM(SALARY)
+        FROM EMPLOYEE
+        WHERE SUBSTR(EMP_NO,8,1) = 1;
+        ```
+    - AVG
+        - 데이터의 평균값
+        
+        ```sql
+        SELECT AVG(bonus)
+        FROM EMPLOYEE
+        ```
+    - COUNT
+        - 데이터의 갯수 == ROW의 갯수
+        
+        ```sql
+        SELECT 
+            COUNT(*), -- 조회된 전체 행 개수를 반환
+            COUNT(컬럼), -- 컬럼의 값이 NULL인 행은 카운트하지 않는다.
+            COUNT(DISTINCT 컬럼) -- 컬럼 값을 중복제거하고, 컬럼의 값 개수를 반환한다.
+        FROM EMPLOYEE
+        ```
+    - MIN/MAX
+        - 최소값, 최대값
+        
+        ```sql
+        SELECT MIN(SALARY), MAX(SALARY)
+        FROM EMPLOYEE;
+        ```
 
 
 
