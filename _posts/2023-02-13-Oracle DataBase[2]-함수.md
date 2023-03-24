@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Oracle Database[2]
+title: Oracle Database[2]-함수
 ---
 
 ## 함수
@@ -66,6 +66,7 @@ title: Oracle Database[2]
         - UPPER - 대문자로 변환(LIKE 연산자 사용시 대소문자 상관없이 검색할 때 사용)
         - LOWER - 소문자로 변환(LIKE 연산자 사용시 대소문자 상관없이 검색할 때 사용)
         - INITCAP - 첫번째 문자를 대문자로 변환
+        
         ```sql
         SELECT 
             UPPER('Welcom to oRACLEworld'), 
@@ -79,10 +80,116 @@ title: Oracle Database[2]
         ```
     - CONCAT
         - 연결연산 / 문자열을 연결해주는 연산 : 컬럼의 문자 혹은 문자열을 두 개 이상 전달받아 하나로 합친 후 반환
+        
+        ```sql
+        SELECT
+            CONCAT('ORACLE','DATABASE')
+        FROM
+            DUAL;
+        ```
+    - REPLACE
+        - 대상문자(컬럼)에서 지정문자를 찾아 대체문자로 변경하는 것 - 일괄적으로 데이터를 바꾸어야 할 경우에 용이
+        - REPLACE(대상문자 || 컬럼, 지정문자. 대체문자)
+        
+        ```sql
+        SELECT '나는 오라클을 싫어해', REPLACE('나는 오라클을 싫어해','싫어','좋아')
+        FROM DUAL;
+        
+        -- 싫어를 좋아로 변경
+        ```
+    - REVERSE
+        - 해당문자열을 역순으로 만드는 것
+        
+        ```sql
+        SELECT 'ABCDE', REVERSE('ABCDE')
+        FROM DUAL;
+        
+        -> EDCBA
+        ```
+    - TRANSLATE
+        - 해당문자를 매칭되어있는 문자로 출력해주는 기능
+        
+        ```sql
+        SELECT TRANSLATE('010-3644-6259','0123456789','영일이삼사오육칠팔구')
+        FROM DUAL;
+        
+        -> 영일영-삼육사사-육이오구
+        ```
+   
+   
+2. 숫자 처리 함수
+    - ABS
+        - 절대값을 구하는 함수
+        - 양수, 음수 등 어떤 숫자를 넣어도 절대값만 출력
+        ```sql
+        SELECT ABS(-10), ABS(10)
+        FROM DUAL;
+        
+        -> 10, 10
+        ```
+    - MOD
+        - MOD(a,b) : a를 b로 나누었을때 나머지 값을 반환
+        
+        ```sql
+        SELECT MOD(3,2)
+        FROM DUAL;
+        
+        -> 1
+        ```
+    - ROUND
+        - 특정 소수점을 반올림하고 나머지를 버리는 함수
+        - ROUND(소수점숫자[,자리수])
+        - -를 붙이명 해당 자리수의 값을 0으로 만든다.
+        
+        ```sql
+        SELECT 
+            ROUND(126.456), -- 소수점을 기준으로 반올림
+            ROUND(126.543), -- 소수점을 기준으로 반올림
+            ROUND(126.456,2), -- 소수점 2자리까지 반올림해서 출력 
+            ROUND(126.456,-2) -- 소수점으로부터 앞으로 2자리까지 0으로 변환
+        FROM DUAL;
+        
+        -> 126, 127, 126.46, 100
+        ```
 
-
-
-
+    - FLOOR
+        - 반올림을 하지 않고 소수점를 자리 버린다.
+        
+        ```sql
+        SELECT FLOOR(126.456),FLOOR(126.543)
+        FROM DUAL;
+        
+        -> 126, 126
+        ```
+    -  TRUNC
+        - 자리수를 지정 소수점자리 버린다.
+        
+        ```sql
+        SELECT 
+            TRUNC(123.456), -- 소수점 자르기
+            TRUNC(123.456, 2) -- 소수점 2자리 남기고 자르기
+        FROM DUAL;
+        ```
+     - CEIL
+        - 반올림이 아니라 무조건 올림
+        
+        ```sql
+        SELECT CEIL(126.456), CEIL(126.567)
+        FROM DUAL;
+        
+        -> 127, 127
+        ```
+3. 날짜 처리 함수
+    - SYSDATE
+        - 현재 날짜 출력
+        - SYSDATE : 년월일시분초 까지 표시
+        - SYSDATESTAMP : 년월일시분초 밀리세컨드 까지 표시
+        ```sql
+        SELECT SYSDATE, SYSTIMESTAMP
+        FROM DUAL;
+        
+        -> 23/02/13, 23/02/13 12:54:13.191000000 +09
+        ```
 
 
 
