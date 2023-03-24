@@ -61,5 +61,37 @@ title: Oracle Database[2]
     - SUBSTR
         - JAVA의 SUBSTRING이랑 동일한 기능, 문자열을 인덱스기준으로 잘라내는 것
         - SUBSTR('문자열'||시작인덱스[,길이])
+    - UPPER, LOWER INITCAP
+        - 컬럼의 문자 혹은 문자열을 소문자/대문자/첫 글자만 대문자로 변환하여 반환
+        - UPPER - 대문자로 변환(LIKE 연산자 사용시 대소문자 상관없이 검색할 때 사용)
+        - LOWER - 소문자로 변환(LIKE 연산자 사용시 대소문자 상관없이 검색할 때 사용)
+        - INITCAP - 첫번째 문자를 대문자로 변환
+        ```sql
+        SELECT 
+            UPPER('Welcom to oRACLEworld'), 
+            LOWER('Welcom to oRACLEworld'),
+            INITCAP('Welcom to oRACLEworld')
+        FROM DUAL;
+        
+        -- UPPER : 'WELCOME TO ORACLEWORLD'
+        -- LOWER : 'welcome to oracleworld'
+        -- INTICAP : 'Welcome To Oracleword'
+        ```
+    - CONCAT
+        - 연결연산 / 문자열을 연결해주는 연산 : 컬럼의 문자 혹은 문자열을 두 개 이상 전달받아 하나로 합친 후 반환
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
