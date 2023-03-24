@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Oracle DataBase[4]-JOIN
+title: Oracle DataBase[4] - JOIN
 ---
 
 ## JOIN
