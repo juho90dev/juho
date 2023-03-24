@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Oracle Database[2]-함수
+title: Oracle Database[2] - 함수
 ---
 
 ## 함수
