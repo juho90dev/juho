@@ -121,6 +121,7 @@ title: Oracle Database[2]-함수
     - ABS
         - 절대값을 구하는 함수
         - 양수, 음수 등 어떤 숫자를 넣어도 절대값만 출력
+        
         ```sql
         SELECT ABS(-10), ABS(10)
         FROM DUAL;
@@ -184,15 +185,55 @@ title: Oracle Database[2]-함수
         - 현재 날짜 출력
         - SYSDATE : 년월일시분초 까지 표시
         - SYSDATESTAMP : 년월일시분초 밀리세컨드 까지 표시
+        
         ```sql
         SELECT SYSDATE, SYSTIMESTAMP
         FROM DUAL;
         
         -> 23/02/13, 23/02/13 12:54:13.191000000 +09
         ```
-
-
-
+    - LAST_DAY
+        - 현재 달의 마지막 날 출력
+        
+        ```sql
+        SELECT LAST_DAY(SYSDATE)
+        FROM DUAL;
+        ```
+    - ADD_MONTHS
+        - 지정된 날에서 개월수를 더하는 계산
+        ```sql
+        SELECT 
+            ADD_MONTHS(SYSDATE,3), -- 해당 달에서 3개월을 더해서 출력
+            ADD_MONTHS(SYSDATE,10) -- 해당 달에서 10개월을 더해서 출력
+        FROM DUAL;
+        ```
+    - MONTHS_BETWEEN
+        - 두개 날짜를 받아서 두 날짜의 개월수 차이를 계산해주는 기능
+        
+        ```sql
+        SELECT MONTHS_BETWEEN(SYSDATE,'22/01/01')
+        FROM DUAL;
+        
+        -- 별거 아닌 응용
+        SELECT TRUNC(MONTHS_BETWEEN(SYSDATE,'22/01/01'))
+        FROM DUAL;
+        
+        -- TRUNC를 사용해서 소수점을 버린 개월수를 출력할 수 있다.
+        ```
+    - EXTRACT
+        - 날짜의 년, 월, 일을 따로 출력할 수 있게 해주는 함수
+        - EXTRACT(YEAR FROM 날짜) : 날짜에서 년을 출력
+        - EXTRACT(MONTH FROM 날짜) : 날짜에서 월을 출력
+        - EXTRACT(DAY FROM 날짜) : 날짜에서 일을 출력
+        - 숫자형으로 반환
+        
+        ```sql
+        SELECT 
+            EXTRACT(YEAR FROM SYSDATE), -- 해당 날짜에서 년도만 출력
+            EXTRACT(MONTH FROM SYSDATE), -- 해당 날짜에서 월만 출력
+            EXTRACT(DAY FROM SYSDATE) -- 해당 날짜에서 일만 출력
+        FROM DUAL;
+        ```
 
 
 
