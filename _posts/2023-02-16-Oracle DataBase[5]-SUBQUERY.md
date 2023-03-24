@@ -42,8 +42,7 @@ title: Oracle DataBase[5] - SUBQUERY
         -- 각사원이 속한 부서의 평균급여를 사원명, 부서코드, 직책코드, 급여와 같이 출력
         SELECT 
             EMP_NAME, DEPT_CODE, JOB_CODE, SALARY, 
-            (SELECT 
-                AVG(SALARY) 
+            (SELECT AVG(SALARY) 
                     FROM EMPLOYEE 
                         WHERE E.DEPT_CODE = DEPT_CODE)
         FROM EMPLOYEE E;
