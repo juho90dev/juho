@@ -3,7 +3,7 @@ layout: post
 title: Oracle DataBase[3] - GROUP BY & HAVING & ORDER BY
 ---
 
-## GROUP BY & HAVING & ORDER BY에 대해 간단히 정리해 보자.
+### GROUP BY & HAVING & ORDER BY에 대해 간단히 정리해 보자.
 
 
 1. GROUP BY
