@@ -136,6 +136,7 @@ HTML 그리고 JavaScript에서의 드래그 앱 드롭은 이벤트 기반으�
     - 드래그 앤 드롭시 자료를 전달하기 위해서는 dataTransfer 객체를 사용해야 한다. 
         - dataTransfer 객체는 이벤트의 속성으로 드래그한 항목에서 타겟의 정보를 전송할 수 있다.
         - 나는 setData(), getData() 두개의 메소드를 사용했다.
+        
         ```javascript
         // drag를 시작할때
         e.dataTransfer.setData('text/html', this.innerHTML);
