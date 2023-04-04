@@ -159,7 +159,27 @@ HTML 그리고 JavaScript에서의 드래그 앱 드롭은 이벤트 기반으�
         ```
 
 
+-------------------------------------------------------
 
+이번에는 JQUERY로 드래그앤드랍을 해보자.
+- `sortable()` 함수 이용하기
+- 먼저 Jquery를 등록해준다.
+- 그리고  jQuery User Interface Library에 있는 Sortable을 사용하기 위해 jquery-ui도 등록해준다.
+    ```javascript
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+    ```
+
+    <br>
+    
+    ```javascript
+    $(function() {
+        
+        $("#container").sortable();
+        $("#container").disableSelection();
+    });
+    ```
+- 이렇게 작성하면 끝이다. 하지만 이것은 순서만 바뀔 뿐 내가 원하는 요소끼리 위치가 변동되지는 않는다.
 
 
 
