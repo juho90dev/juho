@@ -110,7 +110,7 @@ HTML 그리고 JavaScript에서의 드래그 앱 드롭은 이벤트 기반으�
         ```
         
      - 드래그를 시작할때 불투명도를 적용했다. 물론 필수적으로 적용할 필요는 없는데 드래그 하고있다는 div라는걸 표시하기 위해 적용했다.
-        - 드래그가 끝나면 다시 불투명도는 100%로 오도록 설정
+     - 드래그가 끝나면 다시 불투명도는 100%로 오도록 설정
         ```javascript
         function handleDragStart(e) {
             this.style.opacity = '0.4';
@@ -120,21 +120,42 @@ HTML 그리고 JavaScript에서의 드래그 앱 드롭은 이벤트 기반으�
         }
         ```
     - 드래그할 경우 해당 링크로 이동하는 브라우저의 기본 동작을 방지해야 한다. 그래서 dragover 이벤트에서 e.preventDefault()를 호출한다.
-        - preventDefault()
-            - 메서드는 어떤 이벤트를 명시적으로 처리하지 않은 경우, 해당 이벤트에 대한 사용자 에이전트의 기본 동작을 실행하지 않도록 지정하는 것
-        ```javascript
-        function dragOver(e) {
-            if (e.preventDefault) {
-                e.preventDefault();
-            }
-            e.dataTransfer.dropEffect = 'move';
-            return false;
-        }
-        ```            
-    - 드래그 앤 드롭시 자료를 전달하기 위해서는 dataTransfer 객체를 사용해야 한다. 
-        - dataTransfer 객체는 이벤트의 속성으로 드래그한 항목에서 드롭 타겟으로 자료를 전송할 수 있다.
+    > preventDefault()
+        - 메서드는 어떤 이벤트를 명시적으로 처리하지 않은 경우, 해당 이벤트에 대한 사용자 에이전트의 기본 동작을 실행하지 않도록 지정하는 것
+    <br>
     
-
+    ```javascript
+    function dragOver(e) {
+        if (e.preventDefault) {
+            e.preventDefault();
+        }
+        e.dataTransfer.dropEffect = 'move';
+        return false;
+    }
+    ```            
+    - 드래그 앤 드롭시 자료를 전달하기 위해서는 dataTransfer 객체를 사용해야 한다. 
+        - dataTransfer 객체는 이벤트의 속성으로 드래그한 항목에서 타겟의 정보를 전송할 수 있다.
+        - 나는 setData(), getData() 두개의 메소드를 사용했다.
+        ```javascript
+        // drag를 시작할때
+        e.dataTransfer.setData('text/html', this.innerHTML);
+        
+        // 드랍을 할때(드래그이벤트가 끝나는 시점)
+        this.innerHTML = e.dataTransfer.getData('text/html');
+        ```
+    
+    - 마지막으로 드래그이벤트를 적용할 div를 불러온다.
+    - 그리고 해당 div에 각각의 이벤틀르 적용시켜준다.
+        ```javascript
+        let items = document.querySelectorAll('.players .player');
+        
+        items.forEach(function(item) {
+            item.addEventListener('dragstart', dragStart);
+            item.addEventListener('dragover', dragOver);
+            item.addEventListener('drop', handleDrop);
+            item.addEventListener('dragend', dragEnd);
+        });
+        ```
 
 
 
