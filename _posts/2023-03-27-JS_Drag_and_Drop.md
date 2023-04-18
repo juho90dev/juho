@@ -172,7 +172,7 @@ HTML 그리고 JavaScript에서의 드래그 앱 드롭은 이벤트 기반으�
 
     <br>
     
-    ```
+    ```javascript
     $(function() {
         
         $("#container").sortable();
