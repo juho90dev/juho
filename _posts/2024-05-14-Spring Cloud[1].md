@@ -62,7 +62,18 @@ title: Spring Cloud[1]
 
 ## Spring Cloud 종류
 1. 주요 컴포넌트
-    - Spring Cloud 
+    - **Spring Cloud**
+        - Cloud Bootstrap : Spring Cloud 애플리케이션을 시작하기 위한 기본 구성 요소를 제공
+        - Function : Spring Cloud Function을 사용하여 서버리스 기능을 작성하고 실행할 수 있는 기능을 제공
+        - Task
+    - **Spring Cloud Tools (Spring Tool Suite용 플러그인과 확장 기능)**
+        - Open Service Broker : 서비스 브로커를 생성하기 위한 도구를 제공
+    - **Spring Cloud Config : 분산 시스템을 위한 중앙 집중식 구성 관리를 제공**
+        - Config Client
+        - Config Server
+        - Valut Configuration
+        - Apache Zookeeper Configuration
+        - Consul Configuration 
 
 
 
