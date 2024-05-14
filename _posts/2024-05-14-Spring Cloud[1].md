@@ -69,11 +69,11 @@ title: Spring Cloud[1]
     - **Spring Cloud Tools (Spring Tool Suite용 플러그인과 확장 기능)**
         - Open Service Broker : 서비스 브로커를 생성하기 위한 도구를 제공
     - **Spring Cloud Config : 분산 시스템을 위한 중앙 집중식 구성 관리를 제공**
-        - Config Client
-        - Config Server
-        - Valut Configuration
-        - Apache Zookeeper Configuration
-        - Consul Configuration 
+        - Config Client : Spring 애플리케이션에서 Spring Cloud Config Server의 구성 속성을 사용할 수 있도록 제공
+        - Config Server : 중앙 집중식 구성 관리를 제공하는 서버를 제공
+        - Valut Configuration : 암호화된 구성 속성을 제공하는 서버를 제공
+        - Apache Zookeeper Configuration : Spring Cloud Config Server와 함께 Apache Zookeeper를 사용하여 구성 관리를 제공
+        - Consul Configuration : Spring Cloud Config Server와 함께 Consul을 사용하여 구성 관리를 제공
 
 
 
