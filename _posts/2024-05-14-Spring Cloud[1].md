@@ -36,11 +36,32 @@ title: Spring Cloud[1]
     - 데이터 관리 : 서비스 간 데이터 공유가 어려움
     - 장애 처리 : 일부 서비스만 다운되므로 장애 발생 시 영향 최소화 가
   
-
-
-
-
-
+3. Spring Boot와 Spring Cloud
+    - Spring Boot
+        - 종류 : '단일 애플리케이션 개발'을 위한 프레임 워크
+        - 장점 : 빠른 개발과 배포, 간단한 설정, Spring 기반으로 다양한 라이브러리 지원
+        - 단점 : 대규모 분산 시스템에서는 한계가 있음
+        - 주요 모듈 : Spring MVC, Spring Data, Spring Security, Spring Boot Actuator
+    - Spring Cloud
+        - 종류 : 분산 시스템의 개발 및 운영'을 위한 프레임 워크(Spring Boot에서 제공하느 기능을 기반으로 분산 시스템에서 필요한 다양한 기능들을 추가로 제공)
+        - 장점 :  Spring Boot에서 제공하느 기능을 기반으로 분산 시스템에서 필요한 다양한 기능들을 추가로 제공
+        - 단점 : 설정이 복잡하고 러닝커브가 높다
+        - 주요 모듈 : Spring Cloud, Config, Discovery, Routing, Circuit Brreaker, Messing
+4. Netflix OSS(Netflix Open Source Softwara)
+    - Netflix에서 개발한 오픈소스 소프트웨어들의 집합으로 클라우드 네이티브 애플리케이션을 만들기 위한 다양한 도구들을 자체적으로 사용하면서 성능이 검증된 라이브러리로 제공
+    - 대표적이 도구로 Eureka, Hystrix, Ribbon, Zuul 등이 있다.
+        - Eureka
+            - 서비스 디스커버리 도구
+            - 각가의 서비스 인스턴스들을 등록하고 관리하는 역할 
+        - Hystrix
+            - 서킷 브레이커 패턴 라이브러리
+            - 서비스 간의 의존성을 관리하고 서비스 장애 시에도 전체 시스템의 안전성을 유지
+        - Ribbon
+            - 클라이언트 측 로드 밸런싱 라이브러리
+            - 여러 개의 인스턴스 중에서 가장 적은 부하를 가진 인스턴스를 선택하여 요청을 보내는 역할     
+        - Zuul
+            - API 게이트웨이
+            - 클라이언트와 서비스 사이에서 라우팅, 필터링, 보안 등의 역할을 수행
 
 
 
