@@ -84,7 +84,10 @@ title: Spring Cloud[1]
             - Apache Zookeeper Discovery : Apache Zookeeper를 사용하여 서비스 검색 제공
             - Cloud Foundry Discovery : CloudFoundry service 제공
             - Consul Discovery : Spring Cloud Consul(인프라 전체에서 서비스를 발견하고 구성하는 도구) 제공
-
+    - **Spring Cloud Routing : 서비스 인스턴스를 동적으로 라우팅 할 수 있는 라이브러리**
+        - Gateway : 라우팅, 필터링 및 통합 서비스를 생성할 수 있는 기능을 제공
+        - OpenFeign : 비스 간 REST 호출을 간소화하는 기능을 제공
+        - CLoud LoadBalalncer : 로드 밸런싱 알고리즘을 설정할 수 있는 기능을 제공
 
 
 
