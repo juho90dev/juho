@@ -63,17 +63,34 @@ title: Spring Cloud[1]
 ## Spring Cloud 종류
 1. 주요 컴포넌트
     - **Spring Cloud**
-        - Cloud Bootstrap : Spring Cloud 애플리케이션을 시작하기 위한 기본 구성 요소를 제공
-        - Function : Spring Cloud Function을 사용하여 서버리스 기능을 작성하고 실행할 수 있는 기능을 제공
-        - Task
+        - 컴포넌트 서비스 
+            - Cloud Bootstrap : Spring Cloud 애플리케이션을 시작하기 위한 기본 구성 요소를 제공
+            - Function : Spring Cloud Function을 사용하여 서버리스 기능을 작성하고 실행할 수 있는 기능을 제공
+            - Task : 단일 JVM에서 실행되는 Spring Boot 애플리케이션을 만들고 실행할 수 있는 기능을 제공
     - **Spring Cloud Tools (Spring Tool Suite용 플러그인과 확장 기능)**
-        - Open Service Broker : 서비스 브로커를 생성하기 위한 도구를 제공
+        - 컴포넌트 서비스 
+            - Open Service Broker : 서비스 브로커를 생성하기 위한 도구를 제공
     - **Spring Cloud Config : 분산 시스템을 위한 중앙 집중식 구성 관리를 제공**
-        - Config Client : Spring 애플리케이션에서 Spring Cloud Config Server의 구성 속성을 사용할 수 있도록 제공
-        - Config Server : 중앙 집중식 구성 관리를 제공하는 서버를 제공
-        - Valut Configuration : 암호화된 구성 속성을 제공하는 서버를 제공
-        - Apache Zookeeper Configuration : Spring Cloud Config Server와 함께 Apache Zookeeper를 사용하여 구성 관리를 제공
-        - Consul Configuration : Spring Cloud Config Server와 함께 Consul을 사용하여 구성 관리를 제공
+        - 컴포넌트 서비스 
+            - Config Client : Spring 애플리케이션에서 Spring Cloud Config Server의 구성 속성을 사용할 수 있도록 제공
+            - Config Server : 중앙 집중식 구성 관리를 제공하는 서버를 제공
+            - Valut Configuration : 암호화된 구성 속성을 제공하는 서버를 제공
+            - Apache Zookeeper Configuration : Spring Cloud Config Server와 함께 Apache Zookeeper를 사용하여 구성 관리를 제공
+            - Consul Configuration : Spring Cloud Config Server와 함께 Consul을 사용하여 구성 관리를 제공
+    - **Spring Cloud Discovery : 마이크로서비스 아키텍처에서 서비스 검색 및 등록을 가능하는 기능을 제공**
+        - 컴포넌트 서비스
+            - Eureka Server : Spring Cloud Netflix Eureka Server 제공
+            - Eureka Discovery Client : Spring Cloud Netflix Eureka Client 제공
+            - Apache Zookeeper Discovery : Apache Zookeeper를 사용하여 서비스 검색 제공
+            - Cloud Foundry Discovery : CloudFoundry service 제공
+            - Consul Discovery : Spring Cloud Consul(인프라 전체에서 서비스를 발견하고 구성하는 도구) 제공
+
+
+
+
+
+
+
 
 
 
