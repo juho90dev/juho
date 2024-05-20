@@ -21,3 +21,34 @@ title: Spring Cloud[2]-특징
 7. 글로벌 락 (Global locks) & 지도자 선출, 클러스터 상태 (Leadership election and cluster state) : Spring Cloud Config
 8. 분산 메시징 (Distributed messaging) : Spring Cloud Messaging
     
+
+## Spring Cloud Config
+
+1. Spring Cloud Config
+    - 분산 시스템에서 외뷔화된 설정 정보를 서버 및 클라이언트에게 제공하는 시스템
+    - 설정 서버(Config Server)는 외부에서 모든 환경에 대한 정보들을 관리해주는 중앙 서버
+    - 본적으로 설정 정보 저장을 위해 git을 사용하도록 되어있어서 손쉽게 외부 도구들로 접근 가능하고, 버전 관리도 가능
+    - Spring Cloud Config Server(설정 서버) : 버전 관리 레포지토리로 백업된 중앙 집중식 구성 노출을 지원
+    - Spring Cloud Config Client(설정 클라이언트) : 애플리케이션이 설정 서버에 연결하도록 지원
+    - 장/단점
+        - 장점
+            - 여러 서버의 설정 파일을 중앙 서버에서 관리
+            - 서버를 재배포 하지 않고 설정 파일의 변경사항을 반영 가능
+        - 단점
+            - Git버서 또는 설정 서버에 의한 장애가 전파될 수 있다
+            - 우선 순위에 의해 잘못된 설정 정보가 덮어씌워질 수 있다
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
